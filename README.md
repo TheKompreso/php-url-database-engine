@@ -48,7 +48,11 @@ URLDatabaseEngine::SetURLObjectParams($id, $type, $relay, $ownURLs, $rights);
 
 # DataBase (MySQL)
 The database is minimized and it contains only the necessary fields, and an additional field for rights (I think that everyone will need it, but you can exclude it from the code)
-| id  | url | type | relay | ownURLs | rights |
+| id  | url | type[^3] | relay | ownURLs[^1] | rights[^2] |
 | --- | --- | ---- | ----- | ------- | ------ |
 | 1 | exemple1 | 0 |  | 0 | 101 |
 | 2 | exemple2 | 2 | google.com | 0 | 101 |
+
+[^1]: Note for ownURLs: if the link has child links that are processed in the parent script, then 0 is indicated.
+[^2]: Note for right: if you have your own rights system, or use a ready-made one, then it is worth considering the possibility of combining a table with rights for pages with a "links" table
+[^3]: Note for type: The field exists for various interpretations of the link. For example: 0 - opens a file in a directory. 1 - opens a file in the directory via the link 'relay'. 2. Redirects the user to the address 'relay'.
