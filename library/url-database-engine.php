@@ -12,8 +12,6 @@
             $result = self::$mysqli->query($sql);
             if($result === false) exit('Table/mysqli access error');
             $row = $result->fetch_assoc();
-            echo "[getURLObject] $subdomain | $path | Запрос: ".$sql.";<br>";
-            print_r($row);
             return $row;
         }
         public static function CreateURLObject($subdomain, $path, $type = 0, $relay = "", $haveChildern = 0, $rights = 0)
