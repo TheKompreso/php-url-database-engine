@@ -1,5 +1,5 @@
 <?php
-    class urlDatabaseEngine
+    class URLDatabaseEngine
     {
         static $mysqli;
         public static function InsertDataBase($database)
