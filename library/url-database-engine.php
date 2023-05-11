@@ -14,9 +14,9 @@
             $row = $result->fetch_assoc();
             return $row;
         }
-        public static function CreateURLObject($subdomain, $path, $type = 0, $relay = "", $haveChildern = 0, $rights = 0)
+        public static function CreateURLObject($subdomain, $path, $type = 0, $relay = "", $rights = 0)
         {
-            $sql = "INSERT INTO links (url,type,relay,ownURLs,rights) VALUES ('".mysqli_real_escape_string(self::$mysqli,"$subdomain?$path")."',$type,'$relay',$haveChildern,$rights)";
+            $sql = "INSERT INTO links (url,type,relay,rights) VALUES ('".mysqli_real_escape_string(self::$mysqli,"$subdomain?$path")."',$type,'$relay',$rights)";
             $result = self::$mysqli->query($sql);
             if($mysqli->errno) echo($mysqli->errno.": ".$mysqli->error);
             else return true;
@@ -30,14 +30,6 @@
             else return true;
             return false;
         }
-        public static function SetURLObjectOwnURLs($id, $ownURLs)
-        {
-            $sql = "UPDATE links SET ownURLs=$ownURLs WHERE id=$id";
-            $result = self::$mysqli->query($sql);
-            if($mysqli->errno) echo($mysqli->errno.": ".$mysqli->error);
-            else return true;
-            return false;
-        }
         public static function SetURLObjectRights($id, $rights)
         {
             $sql = "UPDATE links SET rights=$rights WHERE id=$id";
@@ -46,9 +38,9 @@
             else return true;
             return false;
         }
-        public static function SetURLObjectParams($id, $type, $relay, $ownURLs, $rights)
+        public static function SetURLObjectParams($id, $type, $relay, $rights)
         {
-            $sql = "UPDATE links SET type=$type,relay='$relay',ownURLs=$ownURLs,rights=$rights WHERE id=$id";
+            $sql = "UPDATE links SET type=$type,relay='$relay',rights=$rights WHERE id=$id";
             $result = self::$mysqli->query($sql);
             if($mysqli->errno) echo($mysqli->errno.": ".$mysqli->error);
             else return true;
