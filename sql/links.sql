@@ -32,7 +32,6 @@ CREATE TABLE `links` (
   `url` varchar(40) NOT NULL,
   `type` tinyint(3) UNSIGNED NOT NULL,
   `relay` text NOT NULL,
-  `ownURLs` tinyint(1) NOT NULL,
   `rights` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
