@@ -14,7 +14,7 @@ Function: **GetURLObject**
 ```
 $URLData = URLDatabaseEngine::GetURLObject($subdomain, $action[1]);
 ```
->Get all information about URL stored in database<br>$URLData['type'] - link type<br>$URLData['relay'] - address/reference for type<br>$URLData['ownURLs'] - having children<br>$URLData['rights'] - link rights (group or rights themselves)
+>Get all information about URL stored in database<br>$URLData['type'] - link type<br>$URLData['relay'] - address/reference for type<br>$URLData['rights'] - link rights (group or rights themselves)
 
 Function: **CreateURLObject**
 ```
@@ -28,12 +28,6 @@ URLDatabaseEngine::SetURLObjectType($id, $type, $relay="");
 ```
 >Changes the corresponding data for the link. Returns True on successful change.
 
-Function: **SetURLObjectOwnURLs**
-```
-URLDatabaseEngine::SetURLObjectOwnURLs($id, $ownURLs);
-```
->Changes the corresponding data for the link. Returns True on successful change.
-
 Function: **SetURLObjectRights**
 ```
 URLDatabaseEngine::SetURLObjectRights($id, $rights);
@@ -42,7 +36,7 @@ URLDatabaseEngine::SetURLObjectRights($id, $rights);
 
 Function: **SetURLObjectParams**
 ```
-URLDatabaseEngine::SetURLObjectParams($id, $type, $relay, $ownURLs, $rights);
+URLDatabaseEngine::SetURLObjectParams($id, $type, $relay, $rights);
 ```
 >Changes all data of the link. Returns True on successful change.
 
